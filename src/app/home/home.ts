@@ -1,6 +1,6 @@
 import { Component, inject, OnInit, signal } from '@angular/core';
 import { HomeService } from './home.service';
-import { LogginService } from '../loggin/loggin.service';
+import { LogginService } from '../loggin/login.service';
 
 @Component({
   selector: 'app-home',

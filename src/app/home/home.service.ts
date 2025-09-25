@@ -1,7 +1,7 @@
 import { inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { BaseResponse } from '../loggin/loggin.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { BaseResponse } from '../login/login.service';
 
 @Injectable({ providedIn: 'root' })
 export class HomeService {

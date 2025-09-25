@@ -9,7 +9,7 @@ export type User = {
   createOn?: Date;
 };
 
-export type LogginResponse = {
+export type LoginResponse = {
   access_token: string;
   expires_in: number;
   refresh_expires_in?: number;
@@ -31,7 +31,7 @@ export type BaseResponse<T> = {
 @Injectable({
   providedIn: 'root',
 })
-export class LogginService {
+export class LoginService {
   private baseUrl = 'https://maur025.server.local:7785/realms/farm-auth';
   private readonly httpClient = inject(HttpClient);
 
@@ -39,19 +39,19 @@ export class LogginService {
     return this.httpClient.get<BaseResponse<User[]>>(`${this.baseUrl}/users`);
   }
 
-  public loggin(postData: {
+  public login(postData: {
     username: string | null;
     password: string | null;
-  }): Observable<LogginResponse> {
-    return this.httpClient.post<LogginResponse>(
+  }): Observable<LoginResponse> {
+    return this.httpClient.post<LoginResponse>(
       `${this.baseUrl}/protocol/openid-connect/token?grant_type=password`,
       postData,
       { withCredentials: true }
     );
   }
 
-  public refreshToken(): Observable<LogginResponse> {
-    return this.httpClient.post<LogginResponse>(
+  public refreshToken(): Observable<LoginResponse> {
+    return this.httpClient.post<LoginResponse>(
       `${this.baseUrl}/protocol/openid-connect/token?grant_type=refresh_token`,
       null,
       {
