@@ -32,7 +32,7 @@ export type BaseResponse<T> = {
   providedIn: 'root',
 })
 export class LogginService {
-  private baseUrl = 'http://172.20.50.60:7785/realms/farm-auth';
+  private baseUrl = 'https://maur025.server.local:7785/realms/farm-auth';
   private readonly httpClient = inject(HttpClient);
 
   public findAllUsers(): Observable<BaseResponse<User[]>> {

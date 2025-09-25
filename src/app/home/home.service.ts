@@ -7,7 +7,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class HomeService {
   private readonly httpClient = inject(HttpClient);
 
-  private baseUrl = 'http://localhost:7783/api/farm';
+  private baseUrl = 'https://maur025.server.local:7783/api/farm';
 
   public findAllActivities(): Observable<BaseResponse<any>> {
     const headers = new HttpHeaders({
